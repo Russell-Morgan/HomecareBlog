@@ -24,19 +24,15 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', function () {
-    return Inertia::render('Home');
-})->name('home');
-
-Route::get('/create', function () {
-    return Inertia::render('Posts/CreatePost');
-})->name('create');
+    return redirect()->route('posts.index');
+});
 
 Route::resource('posts', 'App\Http\Controllers\PostController');
-Route::resource('comments', 'App\Http\Controllers\CommentController');
+Route::resource('comments', 'App\Http\Controllers\CommentController')->only(['store']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

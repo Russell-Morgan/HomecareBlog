@@ -4,10 +4,10 @@ import { Link } from '@inertiajs/inertia-vue3';
 
 <template>
     <div class="navBar">
-        <Link :href="route('home')">
+        <Link id="homeLink" :href="route('posts.index')">
         Home
         </Link>
-        <Link :href="route('create')">
+        <Link :href="route('posts.create')">
         <button class="primaryButton">
             New post
         </button>

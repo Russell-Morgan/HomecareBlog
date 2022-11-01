@@ -2,20 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    font-size: 20px;
+}
+
 h1 {
-    font-size: x-large;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+small {
+    font-size: 16px;
+    color: #656565;
+}
+
+/* scrollbar */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #aeb2c5 #ffffff;
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #aeb2c5;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+/* scrollbar end */
+
+#homeLink {
+    font-size: 24px;
+}
+
+#editPostLink {
+    margin: 25px;
+    width: initial;
 }
 
 textarea {
     resize: none;
 }
 
+.postCard {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.postCard>img {
+    height: 94px;
+    width: 112px;
+    margin-right: 16px;
+    margin-top: 10px;
+}
+
+.postCard>div {
+    display: flex;
+    flex-direction: column;
+}
+
+#readMoreLink {
+    align-self: flex-end;
+}
+
+.linkActionButton {
+    text-decoration-line: underline;
+    color: #126cc7;
+}
+
+.postCardBody {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .postForm {
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
+
+
+.postForm>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .postInput {
@@ -25,12 +111,20 @@ textarea {
     border-color: #aeb2c5;
     border-width: 1px;
 }
-.postInput > label {
+
+.postInput>label {
     color: #6b7280;
     cursor: pointer;
 }
-.postInput > label > input {
-    visibility: hidden;
+
+.postInput>label>input {
+    display: none;
+}
+
+.postDetailsImage {
+    max-height: 262px;
+    object-fit: cover;
+    margin: 15px 0;
 }
 
 .pageLayout {
@@ -41,28 +135,35 @@ textarea {
 
 .navBar {
     padding: 20px;
-    box-shadow: 0px 5px 10px #DDD;
+    box-shadow: 0px 5px 11px #00000019;
     justify-content: space-between;
     flex-direction: row;
     display: flex;
     align-items: center;
 }
+
 .primaryButton {
-    min-width: 150px;
+    width: 185px;
     padding: 5px;
     background-color: #126cc7;
-    border-radius: 5px;
+    border-radius: 6px;
     color: white;
-    font-weight: bold;
+    font-weight: 700;
 }
+
 .createButton {
-    width: 150px;
     align-self: flex-end;
 }
 
 .searchBar {
-    height: 40px;
-    border-radius: 25px;
+    height: 45px;
+    border-radius: 28px;
+    margin: 10px;
+}
+
+.pageActions>* {
+    display: inline-block;
+    margin: 40px;
 }
 
 .pageContent {
@@ -75,15 +176,22 @@ textarea {
 }
 
 .pageContent>* {
-    width: 60%;
+    width: 55%;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
     .pageContent {
         padding: 25px;
     }
-
+    
     .pageContent>* {
         width: 100%;
     }
+}
+
+.commentCard {
+    margin: 10px 0;
+}
+.commentDivider {
+    margin-bottom: 10px;
 }
