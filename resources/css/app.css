@@ -83,11 +83,14 @@ textarea {
     color: #126cc7;
 }
 
+
+
 .postCardBody {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    word-break: break-word;
 }
 
 .postForm {
@@ -183,15 +186,24 @@ textarea {
     .pageContent {
         padding: 25px;
     }
-    
+
     .pageContent>* {
         width: 100%;
+    }
+
+    #backFromDetails {
+        display: none;
+    }
+
+    .primaryButton {
+        width: 150px;
     }
 }
 
 .commentCard {
     margin: 10px 0;
 }
+
 .commentDivider {
-    margin-bottom: 10px;
+    margin: 10px 0;
 }

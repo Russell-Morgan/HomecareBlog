@@ -25,7 +25,7 @@ const form = useForm({
 
     <Layout>
         <template #actions>
-            <Link class="linkActionButton" :href="route('posts.index')">Back</Link>
+            <Link id="backFromDetails" class="linkActionButton" :href="route('posts.index')">Back</Link>
         </template>
 
         <h1>{{ post.title }}</h1>
@@ -35,9 +35,12 @@ const form = useForm({
         <img class="postDetailsImage" :src="'../storage/post/' + post.file_path" />
         <p>{{ post.body }}</p>
         <Link class="linkActionButton" id="editPostLink" :href="route('posts.edit', post.id)">Edit</Link>
-        <hr class="commentDivider"/>
+        <hr class="commentDivider" />
         <CommentCard v-for="comment in comments" :key="comment.id" :comment="comment" />
-        <form @submit.prevent="form.post(route('comments.store'), { onSuccess: () => form.reset() })" class="postForm">
+        <form @submit.prevent="form.post(
+            route('comments.store'),
+            { onSuccess: () => form.reset() }
+        )" class="postForm">
             <textarea class="postInput" placeholder="Write a comment" rows="4" v-model="form.body" maxlength="255"
                 required />
             <button class="primaryButton createButton" type="submit">Add comment</button>
