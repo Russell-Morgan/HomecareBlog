@@ -53,9 +53,9 @@ class PostController extends Controller
             return response('Must upload file.', 400);
         }
         $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'body' => 'required',
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'body' => 'required|string|max:999',
             'image' => 'mimes:jpeg,png'
         ]);
 
@@ -111,9 +111,9 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $validated = $request->validate([
-            'title' => 'required',
-            'author' => 'required',
-            'body' => 'required',
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'body' => 'required|string|max:999',
         ]);
         $post->update($validated);
 
